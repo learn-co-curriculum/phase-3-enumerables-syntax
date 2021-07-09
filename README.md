@@ -22,8 +22,8 @@ for arrays that help with iteration, each of which comes with its own use cases:
 
 Ruby also has methods that we can use on arrays (and hashes as well!) that give
 similar functionality, but with some difference in syntax. In this lesson, we'll
-show some common methods for iterating over arrays and hashes, and break down
-the Ruby syntax alongside the equivalent syntax in JavaScript.
+break down the Ruby syntax alongside the equivalent syntax in JavaScript for
+iterating over collections.
 
 ## Enumerable Methods and Block Syntax
 
@@ -48,7 +48,7 @@ added to a new array. After iterating over every element of the array, the
 return value of `map` will be a new array, based on the return values of the
 callback function.
 
-Ruby also has a `map` method that can be used with arrays. In Ruby, the `map`
+Ruby also has a `#map` method that can be used with arrays. In Ruby, the `#map`
 method is an [**Enumerable**][ruby docs enumerable]: a method that "enumerates"
 (goes one by one) over every element of a collection. Here's how that same
 function from JavaScript could be written in Ruby. Run the following code in
@@ -63,7 +63,7 @@ upcased
 # => ["THIS", "IS", "RUBY"]
 ```
 
-You've seen syntax like this before in the looping lesson with the `times`
+You've seen syntax like this before in the looping lesson with the `#times`
 method:
 
 ```rb
@@ -72,12 +72,12 @@ method:
 end
 ```
 
-The `map` method, like `times`, takes a **block of code** as an argument. Think
-of this block as having similar functionality as the callback function in
-JavaScript's `map` method. The block starts with `do` and ends with `end`. It
+The `#map` method, like `#times`, takes a **block of code** as an argument.
+Think of this block as having similar functionality as the callback function in
+JavaScript's `#map` method. The block starts with `do` and ends with `end`. It
 takes one argument in the pipes `||` known as a block parameter, that represents
-each element from the array. In the case of `map`, whatever the **return value**
-of the block is will be added to a new array, which is returned by map.
+each element from the array. In the case of `#map`, whatever the **return
+value** of the block is will be added to a new array, which is returned by map.
 
 Let's take a closer look at some of these concepts.
 
@@ -94,7 +94,7 @@ Blocks are part of what make the Ruby language special, powerful, and loved.
 
 ### What are the `| |`?
 
-Those are called "pipes". When invoking an enumerable method like `map`, the
+Those are called "pipes". When invoking an enumerable method like `#map`, the
 variable name inside the pipes acts as an argument that is being passed into the
 block. The method will pass, or yield, each element of the collection on which
 it is called to the block. Each element, as it gets passed into the block, will
@@ -120,8 +120,8 @@ end
 
 Since the last line of a block is used as the implicit return value in Ruby
 &mdash; even without the `return` keyword &mdash; it's important to understand
-what different methods return. For example, using `puts` in this method would
-have different behavior, since `puts` returns `nil`:
+what different methods return. For example, using `#puts` in this method would
+have different behavior, since `#puts` returns `nil`:
 
 ```rb
 ["this", "is", "Ruby"].map do |str|
@@ -137,7 +137,7 @@ end
 
 Sometimes it's helpful to know the index position of the element you're
 iterating over in an array. JavaScript lets you access the index by assigning a
-second parameter to the `map` method, like so:
+second parameter to the `#map` method, like so:
 
 ```js
 ["this", "is", "JavaScript"].map((str, index) => {
@@ -150,8 +150,8 @@ second parameter to the `map` method, like so:
 // => ["THIS", "is", "JAVASCRIPT"]
 ```
 
-With Ruby, to access the index, you can chain the `with_index` method on most
-enumerable methods, including `map`:
+With Ruby, to access the index, you can chain the `#with_index` method on most
+enumerable methods, including `#map`:
 
 ```rb
 ["this", "is", "Ruby"].map.with_index do |str, index|
@@ -166,7 +166,7 @@ end
 
 ## Variations on Enumerable Syntax
 
-There are a couple of other ways to write the `map` method above. Ruby lets you
+There are a couple of other ways to write the `#map` method above. Ruby lets you
 replace `do` and `end` with curly parentheses for defining blocks:
 
 ```rb
@@ -208,7 +208,7 @@ we'd need to use block syntax instead:
 One other nice feature of Ruby enumerable methods is that you can use them with
 other data types beyond just arrays. You can also use enumerable methods with
 hashes to iterate over all the key-value pairs. For example, we can use the
-`each` method (similar to JavaScript's `forEach`) to access all the key-value
+`#each` method (similar to JavaScript's `forEach`) to access all the key-value
 pairs in a hash:
 
 ```rb
@@ -225,16 +225,17 @@ end
 # Value: 1937
 ```
 
-All the other enumerable methods, including `map`, will also work on hashes;
-however, situations where you'd use methods other than `each` with a hash are
+All the other enumerable methods, including `#map`, will also work on hashes;
+however, situations where you'd use methods other than `#each` with a hash are
 less common.
 
 ## Conclusion
 
 Now that you've seen how the syntax differs between Ruby and JavaScript when it
 comes to iterating over elements in collections, we'll show some common methods
-in Ruby and their use cases. We'll also show how to use `pry` to debug inside of
-blocks so that you can check what your code is doing as it loops through.
+in Ruby and their use cases. We'll also show how to use `binding.pry` to debug
+inside of blocks so that you can check what your code is doing as it loops
+through.
 
 ## Resources
 
