@@ -1,4 +1,4 @@
-# Enumerable Method Syntax
+# Enumerables: Method Syntax
 
 ## Learning Goals
 
