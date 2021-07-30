@@ -119,7 +119,7 @@ end
 ```
 
 Since the last line of a block is used as the implicit return value in Ruby
-&mdash; even without the `return` keyword &mdash; it's important to understand
+— even without the `return` keyword — it's important to understand
 what different methods return. For example, using `#puts` in this method would
 have different behavior, since `#puts` returns `nil`:
 
