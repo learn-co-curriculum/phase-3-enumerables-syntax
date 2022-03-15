@@ -12,7 +12,7 @@ every piece of data by **iterating** over all the elements in an array, or over
 all the key/value pairs in a hash. In JavaScript, there are several built-in methods
 for arrays that help with iteration, each of which comes with its own use cases:
 
-- `forEach`: access each element from an array. Returns the original array.
+- `forEach`: access each element from an array, then return `undefined`.
 - `map`: access each element from an array, and **return a new array**, usually
   by **transforming** (mapping) the values to some new value.
 - `find`: access each element from an array, and return **the first value**
